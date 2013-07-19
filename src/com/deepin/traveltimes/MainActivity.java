@@ -10,6 +10,15 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
+//import android.content.res.Configuration;
+//import android.widget.Toast;
+//import com.baidu.mapapi.BMapManager;
+//import com.baidu.mapapi.map.MKMapViewListener;
+//import com.baidu.mapapi.map.MapController;
+//import com.baidu.mapapi.map.MapPoi;
+//import com.baidu.mapapi.map.MapView;
+//import com.baidu.platform.comapi.basestruct.GeoPoint;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.

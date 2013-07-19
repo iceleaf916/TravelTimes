@@ -47,7 +47,7 @@
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
-        android:normalScreens="false"
+        android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true" />
     
@@ -59,7 +59,7 @@
         
                
         <activity
-            android:name="com.deepin.traveltimes.MainActivity"
+            android:name="com.deepin.traveltimes.LBSMapActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" >
@@ -68,6 +68,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.deepin.traveltimes.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
     </application>
 
