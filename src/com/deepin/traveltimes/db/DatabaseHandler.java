@@ -57,8 +57,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * All CRUD(Create, Read, Update, Delete) Operations
      */
  
-    // Adding new contact
-    void addPosition(Position position) {
+    public void addPosition(Position position) {
         SQLiteDatabase db = this.getWritableDatabase();
  
         ContentValues values = new ContentValues();
@@ -72,7 +71,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
  
     // Getting single contact
-    Position getPosition(int id) {
+    public Position getPosition(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
  
         Cursor cursor = db.query(TABLE_POSITIONS, new String[] { KEY_DATE_TIME,

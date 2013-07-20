@@ -1,9 +1,5 @@
 package com.deepin.traveltimes;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Service;
 import android.content.Intent;
 import android.os.Environment;
@@ -20,6 +16,8 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.deepin.traveltimes.db.DatabaseHandler;
+import com.deepin.traveltimes.db.Position;
 
 public class PositionService extends Service{
 
@@ -32,107 +30,45 @@ public class PositionService extends Service{
 	  public LocationClient mLocationClient = null;
 	  public BDLocationListener myListener = new MyLocationListener();
 	  public LocationClientOption option = new LocationClientOption();
-
-	  public boolean checkExternalStorage(){
-		  boolean mExternalStorageAvailable = false;
-		  boolean mExternalStorageWriteable = false;
-		  String state = Environment.getExternalStorageState();
-
-		  if (Environment.MEDIA_MOUNTED.equals(state)) {
-		      // We can read and write the media
-		      mExternalStorageAvailable = mExternalStorageWriteable = true;
-		  } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-		      // We can only read the media
-		      mExternalStorageAvailable = true;
-		      mExternalStorageWriteable = false;
-		  } else {
-		      // Something else is wrong. It may be one of many other states, but all we need
-		      //  to know is we can neither read nor write
-		      mExternalStorageAvailable = mExternalStorageWriteable = false;
-		  }
-		  return mExternalStorageAvailable && mExternalStorageWriteable;
-	  }
+	  
+	  public DatabaseHandler db = new DatabaseHandler(this);
 	  
 	  public class MyLocationListener implements BDLocationListener {
 		  	
-		   public 
-		  
-			@Override
-			public void onReceiveLocation(BDLocation location) {
-				if (location == null)
+		  	public void updatePositionInfo(BDLocation location){
+		  		String datetime = location.getTime(); 
+		  		String latitude = Double.toString(location.getLatitude());
+		  		String longtitude = Double.toString(location.getLongitude());
+		  		Position position = new Position(datetime, latitude, longtitude);
+		  		db.addPosition(position);
+		  	}
+		  	
+		  	public void locationReceived(BDLocation location){
+		  		if (location == null)
 					return ;
-				StringBuffer sb = new StringBuffer(256);
-				sb.append("time : ");
-				sb.append(location.getTime());
-				sb.append("\nerror code : ");
-				sb.append(location.getLocType());
-				sb.append("\nlatitude : ");
-				sb.append(location.getLatitude());
-				sb.append("\nlontitude : ");
-				sb.append(location.getLongitude());
-				sb.append("\nradius : ");
-				sb.append(location.getRadius());
 				if (location.getLocType() == BDLocation.TypeGpsLocation){
+					updatePositionInfo(location);
 					Log.e(TAG, "Get GPS location results");
 				} else if (location.getLocType() == BDLocation.TypeNetWorkLocation){
+					updatePositionInfo(location);
 					Log.e(TAG, "Get network location results");
 				} else if (location.getLocType() == BDLocation.TypeOffLineLocation){
+					updatePositionInfo(location);
 					Log.e(TAG, "Get offline location results");				
 				}else{
-					Log.e(TAG, "Get location failed");
+					int code = location.getLocType();
+					Log.e(TAG, "Get location failed! Code:" + Integer.toString(code));
 				}
 				stopLocation();
-	
+		  	}
+		  	
+			@Override
+			public void onReceiveLocation(BDLocation location) {
+				locationReceived(location);	
 			}
 		
 			public void onReceivePoi(BDLocation poiLocation) {
-					if (poiLocation == null){
-						return ;
-					}
-					StringBuffer sb = new StringBuffer(256);
-					sb.append("Poi time : ");
-					sb.append(poiLocation.getTime());
-					sb.append("\nerror code : ");
-					sb.append(poiLocation.getLocType());
-					sb.append("\nlatitude : ");
-					sb.append(poiLocation.getLatitude());
-					sb.append("\nlontitude : ");
-					sb.append(poiLocation.getLongitude());
-					sb.append("\nradius : ");
-					sb.append(poiLocation.getRadius());
-					if (poiLocation.getLocType() == BDLocation.TypeNetWorkLocation){
-						sb.append("\naddr : ");
-						sb.append(poiLocation.getAddrStr());
-					} 
-					if(poiLocation.hasPoi()){
-						sb.append("\nPoi:");
-						sb.append(poiLocation.getPoi());
-					}else{				
-						sb.append("noPoi information");
-					}
-					//logMsg(sb.toString());
-					Log.e(TAG, sb.toString());
-					
-					try {
-					    
-					    JSONObject person = new JSONObject();  
-					    
-					    JSONArray phone = new JSONArray();  
-					    phone.put("12345678").put("87654321");  
-					    person.put("phone", phone);  
-					  
-					    person.put("name", "yuanzhifei89");  
-					    person.put("age", 100);  
-					    
-					    JSONObject address = new JSONObject();  
-					    address.put("country", "china");  
-					    address.put("province", "jiangsu");  
-					    person.put("address", address);    
-					    person.put("married", false);  
-					} catch (JSONException ex) {
-					     
-					    throw new RuntimeException(ex);  
-					}  
+				locationReceived(poiLocation);
 			}
 	  }
 	  
@@ -184,7 +120,7 @@ public class PositionService extends Service{
 	                		  Log.e(TAG, "start position OK!");
 	                	  }
 	                	  else{
-	                		  wait(position_interval);
+	                		  wait(retry_interval);
 	                		  Log.e(TAG, "start position FAILED!");
 	                	  }
 	                  } catch (Exception e) {
