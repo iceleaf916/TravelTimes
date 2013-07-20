@@ -26,15 +26,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int imgtest1=0x7f020001;
         public static final int imgtest2=0x7f020002;
         public static final int imgtest3=0x7f020003;
+        public static final int imgtest4=0x7f020004;
     }
     public static final class id {
-        public static final int bmapsView=0x7f070002;
-        public static final int dummy_button=0x7f070003;
+        public static final int dummy_button=0x7f070002;
         public static final int fullscreen_content=0x7f070000;
         public static final int fullscreen_content_controls=0x7f070001;
         public static final int img=0x7f070004;
-        public static final int info=0x7f070006;
-        public static final int title=0x7f070005;
+        public static final int info=0x7f070005;
+        public static final int title=0x7f070003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
