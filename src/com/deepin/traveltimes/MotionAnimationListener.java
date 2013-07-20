@@ -1,6 +1,7 @@
 package com.deepin.traveltimes;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
@@ -42,7 +43,10 @@ public class MotionAnimationListener implements AnimationListener {
 
 				@Override
 				public void onClick(View arg0) {
-
+					Intent intent = new Intent(
+							MotionAnimationListener.this.activity,
+							MapDetailActivity.class);
+					MotionAnimationListener.this.activity.startActivity(intent);
 				}
 			});
 			recordPic.setImageResource(R.drawable.pic);

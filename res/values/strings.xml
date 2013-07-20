@@ -6,6 +6,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_map">MapView</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">这是美好的一天，咱们一起出去旅行吧 :)\n这是美好的一天，咱们一起出去旅行吧 :)\n这是美好的一天，咱们一起出去旅行吧 :)\n这是美好的一天，咱们一起出去旅行吧 :)\n这是美好的一天，咱们一起出去旅行吧 :)</string>
+    <string name="title_activity_map_detail">MapDetailView</string>
 
 </resources>
