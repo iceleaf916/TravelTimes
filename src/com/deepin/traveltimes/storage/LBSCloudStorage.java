@@ -10,7 +10,6 @@ public class LBSCloudStorage {
 	// private static final String ak = "54b391822609195547115cf72df54479";
 	private static final String ak = "9d0caaa9caf79a3eab0db881339bf04c";
 
-
 	public static int createDatabox(String name) throws Exception {
 		String path = "/geodata/databox";
 		HashMap<String, String> query = new HashMap<String, String>();
