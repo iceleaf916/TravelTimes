@@ -38,7 +38,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY," 
         		+ KEY_DATE_TIME + " TEXT,"
         		+ KEY_LATITUDE + " TEXT,"
-                + KEY_LONTITUDE + " TEXT" 
+                + KEY_LONTITUDE + " TEXT"
         		+ ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }

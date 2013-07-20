@@ -55,6 +55,8 @@ public class PositionService extends Service{
 	  
 	  public class MyLocationListener implements BDLocationListener {
 		  	
+		   public 
+		  
 			@Override
 			public void onReceiveLocation(BDLocation location) {
 				if (location == null)
@@ -73,8 +75,6 @@ public class PositionService extends Service{
 				if (location.getLocType() == BDLocation.TypeGpsLocation){
 					Log.e(TAG, "Get GPS location results");
 				} else if (location.getLocType() == BDLocation.TypeNetWorkLocation){
-					/*sb.append("\naddr : ");
-					sb.append(location.getAddrStr());*/
 					Log.e(TAG, "Get network location results");
 				} else if (location.getLocType() == BDLocation.TypeOffLineLocation){
 					Log.e(TAG, "Get offline location results");				
