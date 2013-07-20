@@ -3,6 +3,7 @@ package com.deepin.traveltimes;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.baidu.location.LocationClient;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.map.MapController;
 import com.baidu.mapapi.map.MapView;
@@ -11,6 +12,8 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 public class MapActivity extends Activity {
 	BMapManager mBMapMan = null;
 	MapView mMapView = null;
+	
+	public LocationClient mLocationClient = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -55,6 +55,17 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <activity android:name="com.deepin.traveltimes.PositionRecord"  
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />  
+                <category android:name="android.intent.category.LAUNCHER" />  
+            </intent-filter>  
+        </activity>  
+        <service android:name="com.deepin.traveltimes.PositionService" android:exported="false"></service>
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"></service> 
+        
         <activity
             android:name="com.deepin.traveltimes.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -73,11 +84,6 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_map"
             android:screenOrientation="sensor" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>        
         
         <activity
