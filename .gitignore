@@ -1,5 +1,6 @@
 *.class
 *.swp
 *.log
+.classpath
 bin/
 gen/

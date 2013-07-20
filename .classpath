@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="libs/locSDK_3.3.jar"/>
 	<classpathentry kind="lib" path="libs/baidumapapi_v2_1_2.jar"/>
 	<classpathentry kind="lib" path="libs/baidu-android-openapi-sdk.jar"/>
+	<classpathentry kind="lib" path="/Storage/libs/httpclient-4.2.5.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
