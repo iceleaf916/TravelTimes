@@ -1,0 +1,7 @@
+
+*.class
+*.swp
+*.log
+bin/*
+gen/*
+

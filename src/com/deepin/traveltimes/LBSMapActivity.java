@@ -1,16 +1,9 @@
 package com.deepin.traveltimes;
 
 import android.app.Activity;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.Menu;
-import android.widget.FrameLayout;
-import android.widget.Toast;
-
 import com.baidu.mapapi.BMapManager;
-import com.baidu.mapapi.map.MKMapViewListener;
 import com.baidu.mapapi.map.MapController;
-import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 
@@ -18,6 +11,7 @@ public class LBSMapActivity extends Activity {
 	BMapManager mBMapMan = null;
 	MapView mMapView = null;
 	String APPKEY = "2AFF269BA2653E6378E2B01EFD63CEA278B0B39A";
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -25,7 +19,7 @@ public class LBSMapActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		mBMapMan = new BMapManager(getApplication());
-		mBMapMan.init(APPKEY , null);
+		mBMapMan.init(APPKEY, null);
 		// 注意：请在试用setContentView前初始化BMapManager对象，否则会报错
 		setContentView(R.layout.activity_main);
 		mMapView = (MapView) findViewById(R.id.bmapsView);
