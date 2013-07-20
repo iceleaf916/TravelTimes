@@ -50,7 +50,7 @@ public class LBSCloudStorage {
 				databox_id = json.getInt("id");
 			}
 
-			//EntityUtils.consume(entity);
+			// EntityUtils.consume(entity);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -83,7 +83,7 @@ public class LBSCloudStorage {
 				status = json.getInt("status");
 			}
 
-			//EntityUtils.consume(entity);
+			// EntityUtils.consume(entity);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -116,7 +116,7 @@ public class LBSCloudStorage {
 				status = json.getInt("status");
 			}
 
-			//EntityUtils.consume(entity);
+			// EntityUtils.consume(entity);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -135,8 +135,8 @@ public class LBSCloudStorage {
 
 		URIBuilder builder = new URIBuilder();
 		builder.setScheme("http").setHost("api.map.baidu.com")
-				.setPath("/geodata/databox/" + id)
-				.setParameter("ak", ak).setParameter("scope", scope);
+				.setPath("/geodata/databox/" + id).setParameter("ak", ak)
+				.setParameter("scope", scope);
 		URI uri = builder.build();
 
 		HttpClient httpclient = new DefaultHttpClient();
@@ -148,8 +148,8 @@ public class LBSCloudStorage {
 			if (entity != null) {
 				json_result = new JSONObject(EntityUtils.toString(entity));
 			}
-			
-			//EntityUtils.consume(entity);
+
+			// EntityUtils.consume(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 
@@ -159,15 +159,14 @@ public class LBSCloudStorage {
 		return json_result;
 	}
 
-	public static JSONObject conditionQueryDatabox(String page_index, String page_size) throws Exception {
+	public static JSONObject conditionQueryDatabox(String page_index,
+			String page_size) throws Exception {
 		JSONObject json_result = null;
 
 		URIBuilder builder = new URIBuilder();
 		builder.setScheme("http").setHost("api.map.baidu.com")
-				.setPath("/geodata/databox/")
-				.setParameter("method", "list")
-				.setParameter("ak", ak)
-				.setParameter("page_index", page_index)
+				.setPath("/geodata/databox/").setParameter("method", "list")
+				.setParameter("ak", ak).setParameter("page_index", page_index)
 				.setParameter("page_size", page_size);
 		URI uri = builder.build();
 
@@ -180,8 +179,8 @@ public class LBSCloudStorage {
 			if (entity != null) {
 				json_result = new JSONObject(EntityUtils.toString(entity));
 			}
-			
-			//EntityUtils.consume(entity);
+
+			// EntityUtils.consume(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 
@@ -191,14 +190,17 @@ public class LBSCloudStorage {
 		return json_result;
 	}
 
-	public static JSONObject createDataboxMeta(String name, String key, String type, String databox, String magic) throws Exception {
+	public static JSONObject createDataboxMeta(String name, String key,
+			String type, String databox, String magic) throws Exception {
 		JSONObject json_result = null;
-		
+
 		URIBuilder builder = new URIBuilder();
 		builder.setScheme("http").setHost("api.map.baidu.com")
-				.setPath("/geodata/databoxmeta").setParameter("method", "create")
-				.setParameter("name", name).setParameter("property_key", key)
-				.setParameter("property_type", type).setParameter("databox_id", databox)
+				.setPath("/geodata/databoxmeta")
+				.setParameter("method", "create").setParameter("name", name)
+				.setParameter("property_key", key)
+				.setParameter("property_type", type)
+				.setParameter("databox_id", databox)
 				.setParameter("if_magic_field", magic).setParameter("ak", ak);
 		URI uri = builder.build();
 
@@ -212,7 +214,7 @@ public class LBSCloudStorage {
 				json_result = new JSONObject(EntityUtils.toString(entity));
 			}
 
-			//EntityUtils.consume(entity);
+			// EntityUtils.consume(entity);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -221,7 +223,7 @@ public class LBSCloudStorage {
 
 			httpclient.getConnectionManager().shutdown();
 		}
-		
+
 		return json_result;
 	}
 
@@ -229,7 +231,8 @@ public class LBSCloudStorage {
 		return true;
 	}
 
-	public static int updateDataboxMeta(String meta_id, String name) throws Exception {
+	public static int updateDataboxMeta(String meta_id, String name)
+			throws Exception {
 		int status = -1;
 
 		URIBuilder builder = new URIBuilder();
@@ -249,7 +252,7 @@ public class LBSCloudStorage {
 				status = json.getInt("status");
 			}
 
-			//EntityUtils.consume(entity);
+			// EntityUtils.consume(entity);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -280,8 +283,8 @@ public class LBSCloudStorage {
 			if (entity != null) {
 				json_result = new JSONObject(EntityUtils.toString(entity));
 			}
-			
-			//EntityUtils.consume(entity);
+
+			// EntityUtils.consume(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 
@@ -291,21 +294,26 @@ public class LBSCloudStorage {
 		return json_result;
 	}
 
-	public static boolean conditionQueryDataboxMeta(String meta_id) throws Exception {
+	public static boolean conditionQueryDataboxMeta(String meta_id)
+			throws Exception {
 		return true;
 	}
 
-	public static int createPoi(String name, String orig_lat, String orig_lon, String coord_type, String databox_id) throws Exception {
+	public static int createPoi(String name, String orig_lat, String orig_lon,
+			String coord_type, String databox_id) throws Exception {
 		int poi_id = 0;
 
 		URIBuilder builder = new URIBuilder();
 		builder.setScheme("http").setHost("api.map.baidu.com")
-				.setPath("/geodata/poi"+databox_id).setParameter("method", "create")
-				.setParameter("original_lat", orig_lat).setParameter("original_lon", orig_lon)
-				.setParameter("original_coord_type", coord_type).setParameter("ak", ak);
+				.setPath("/geodata/poi" + databox_id)
+				.setParameter("method", "create")
+				.setParameter("original_lat", orig_lat)
+				.setParameter("original_lon", orig_lon)
+				.setParameter("original_coord_type", coord_type)
+				.setParameter("ak", ak);
 		URI uri = builder.build();
 		HttpClient httpclient = new DefaultHttpClient();
-	
+
 		try {
 			HttpPost httppost = new HttpPost(uri);
 			HttpResponse response = httpclient.execute(httppost);
@@ -315,7 +323,7 @@ public class LBSCloudStorage {
 				poi_id = json.getInt("id");
 			}
 
-			//EntityUtils.consume(entity);
+			// EntityUtils.consume(entity);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -348,7 +356,7 @@ public class LBSCloudStorage {
 				status = json.getInt("status");
 			}
 
-			//EntityUtils.consume(entity);
+			// EntityUtils.consume(entity);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -380,7 +388,7 @@ public class LBSCloudStorage {
 				status = json.getInt("status");
 			}
 
-			//EntityUtils.consume(entity);
+			// EntityUtils.consume(entity);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -397,13 +405,14 @@ public class LBSCloudStorage {
 		return true;
 	}
 
-	public static JSONObject queryPoi(String poi_id, String scope) throws Exception {
+	public static JSONObject queryPoi(String poi_id, String scope)
+			throws Exception {
 		JSONObject json_result = null;
 
 		URIBuilder builder = new URIBuilder();
 		builder.setScheme("http").setHost("api.map.baidu.com")
-				.setPath("/geodata/poi/" + poi_id)
-				.setParameter("ak", ak).setParameter("scope", scope);
+				.setPath("/geodata/poi/" + poi_id).setParameter("ak", ak)
+				.setParameter("scope", scope);
 		URI uri = builder.build();
 
 		HttpClient httpclient = new DefaultHttpClient();
@@ -415,8 +424,8 @@ public class LBSCloudStorage {
 			if (entity != null) {
 				json_result = new JSONObject(EntityUtils.toString(entity));
 			}
-			
-			//EntityUtils.consume(entity);
+
+			// EntityUtils.consume(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 
