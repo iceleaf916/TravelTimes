@@ -1,12 +1,15 @@
 package com.deepin.traveltimes;
 
+
 import com.deepin.traveltimes.util.SystemUiHider;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -30,7 +33,7 @@ public class MainActivity extends Activity {
 	 * Whether or not the system UI should be auto-hidden after
 	 * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
 	 */
-	private static final boolean AUTO_HIDE = false;
+	private static final boolean AUTO_HIDE = true;
 
 	/**
 	 * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
@@ -145,9 +148,13 @@ public class MainActivity extends Activity {
 	View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
 		@Override
 		public boolean onTouch(View view, MotionEvent motionEvent) {
-			if (AUTO_HIDE) {
-				delayedHide(AUTO_HIDE_DELAY_MILLIS);
-			}
+//			if (AUTO_HIDE) {
+//				delayedHide(AUTO_HIDE_DELAY_MILLIS);
+//			}
+
+			Intent intent = new Intent(MainActivity.this, TimesLine.class);
+			startActivity(intent);
+			
 			return false;
 		}
 	};
