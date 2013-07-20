@@ -25,7 +25,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int dummy_button=0x7f070002;
+        public static final int bmapsView=0x7f070002;
+        public static final int dummy_button=0x7f070003;
         public static final int fullscreen_content=0x7f070000;
         public static final int fullscreen_content_controls=0x7f070001;
     }
