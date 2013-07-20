@@ -42,10 +42,11 @@
             android:orientation="horizontal"
             tools:ignore="UselessParent" >
 
-           	<com.baidu.mapapi.map.MapView android:id="@+id/bmapsView"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:clickable="true" />
+           	<com.baidu.mapapi.map.MapView
+           	    android:id="@+id/bmapsView"
+           	    android:layout_width="fill_parent"
+           	    android:layout_height="457dp"
+           	    android:clickable="true" />
             
             <Button
                 android:id="@+id/dummy_button"

@@ -17,7 +17,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 public class LBSMapActivity extends Activity {
 	BMapManager mBMapMan = null;
 	MapView mMapView = null;
-
+	String APPKEY = "2AFF269BA2653E6378E2B01EFD63CEA278B0B39A";
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -25,7 +25,7 @@ public class LBSMapActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		mBMapMan = new BMapManager(getApplication());
-		mBMapMan.init("2AFF269BA2653E6378E2B01EFD63CEA278B0B39A ", null);
+		mBMapMan.init(APPKEY , null);
 		// 注意：请在试用setContentView前初始化BMapManager对象，否则会报错
 		setContentView(R.layout.activity_main);
 		mMapView = (MapView) findViewById(R.id.bmapsView);
