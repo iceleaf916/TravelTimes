@@ -1,134 +1,104 @@
 package com.deepin.traveltimes.storage;
 
+import java.util.HashMap;
+
+import org.json.JSONObject;
+
+import android.util.Log;
+
 public class LBSCloudSearch {
 
 	private static final String ak = "9d0caaa9caf79a3eab0db881339bf04c";
-/*
+
 	public static JSONObject searchRegion(String filter, String databox_id,
 			String location, String scope) throws Exception {
-		JSONObject json_result = null;
 
-		URIBuilder builder = new URIBuilder();
-		builder.setScheme("http").setHost("api.map.baidu.com")
-				.setPath("/geosearch/poi").setParameter("location", location)
-				.setParameter("ak", ak).setParameter("scope", scope);
-		URI uri = builder.build();
+		String path = "/geosearch/poi";
+		HashMap<String, String> query = new HashMap<String, String>();
+		query.put("location", location);
+		query.put("scope", scope);
+		query.put("ak", ak);
+		String uri = StorageUtil.buildUri(path, query);
 
-		HttpClient httpclient = new DefaultHttpClient();
+		Log.e("search region uri", uri);
 
 		try {
-			HttpGet httpget = new HttpGet(uri);
-			HttpResponse response = httpclient.execute(httpget);
-			HttpEntity entity = response.getEntity();
-			if (entity != null) {
-				json_result = new JSONObject(EntityUtils.toString(entity));
-			}
+			return StorageUtil.requestGetResult(uri);
 
-			// EntityUtils.consume(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 
-		} finally {
-			httpclient.getConnectionManager().shutdown();
 		}
-		return json_result;
+		return null;
 
 	}
 
 	public static JSONObject searchNearby(String region, String filter,
 			String scope) throws Exception {
-		JSONObject json_result = null;
 
-		URIBuilder builder = new URIBuilder();
-		builder.setScheme("http").setHost("api.map.baidu.com")
-				.setPath("/geosearch/poi").setParameter("region", region)
-				.setParameter("filter", filter).setParameter("scope", scope)
-				.setParameter("ak", ak);
-		URI uri = builder.build();
+		String path = "/geosearch/poi";
+		HashMap<String, String> query = new HashMap<String, String>();
+		query.put("region", region);
+		query.put("filter", filter);
+		query.put("scope", scope);
+		query.put("ak", ak);
+		String uri = StorageUtil.buildUri(path, query);
 
-		HttpClient httpclient = new DefaultHttpClient();
+		Log.e("search nearby uri", uri);
 
 		try {
-			HttpGet httpget = new HttpGet(uri);
-			HttpResponse response = httpclient.execute(httpget);
-			HttpEntity entity = response.getEntity();
-			if (entity != null) {
-				json_result = new JSONObject(EntityUtils.toString(entity));
-			}
+			return StorageUtil.requestGetResult(uri);
 
-			// EntityUtils.consume(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 
-		} finally {
-			httpclient.getConnectionManager().shutdown();
 		}
-		return json_result;
 
+		return null;
 	}
 
 	public static JSONObject searchBounds(String bounds, String filter,
 			String databox, String scope) throws Exception {
-		JSONObject json_result = null;
+		String path = "/geosearch/poi";
+		HashMap<String, String> query = new HashMap<String, String>();
+		query.put("databox", databox);
+		query.put("filter", filter);
+		query.put("scope", scope);
+		query.put("ak", ak);
+		String uri = StorageUtil.buildUri(path, query);
 
-		URIBuilder builder = new URIBuilder();
-		builder.setScheme("http").setHost("api.map.baidu.com")
-				.setPath("/geosearch/poi").setParameter("databox", databox)
-				.setParameter("filter", filter).setParameter("scope", scope)
-				.setParameter("ak", ak);
-		URI uri = builder.build();
-
-		HttpClient httpclient = new DefaultHttpClient();
+		Log.e("search bounds uri", uri);
 
 		try {
-			HttpGet httpget = new HttpGet(uri);
-			HttpResponse response = httpclient.execute(httpget);
-			HttpEntity entity = response.getEntity();
-			if (entity != null) {
-				json_result = new JSONObject(EntityUtils.toString(entity));
-			}
+			return StorageUtil.requestGetResult(uri);
 
-			// EntityUtils.consume(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 
-		} finally {
-			httpclient.getConnectionManager().shutdown();
 		}
-		return json_result;
 
+		return null;
 	}
 
 	public static JSONObject searchDetail(String poi_id, String scope)
 			throws Exception {
-		JSONObject json_result = null;
 
-		URIBuilder builder = new URIBuilder();
-		builder.setScheme("http").setHost("api.map.baidu.com")
-				.setPath("/geosearch/detail").setParameter("id", poi_id)
-				.setParameter("scope", scope).setParameter("ak", ak);
-		URI uri = builder.build();
-
-		HttpClient httpclient = new DefaultHttpClient();
+		String path = "/geosearch/detail";
+		HashMap<String, String> query = new HashMap<String, String>();
+		query.put("id", poi_id);
+		query.put("scope", scope);
+		query.put("ak", ak);
+		String uri = StorageUtil.buildUri(path, query);
 
 		try {
-			HttpGet httpget = new HttpGet(uri);
-			HttpResponse response = httpclient.execute(httpget);
-			HttpEntity entity = response.getEntity();
-			if (entity != null) {
-				json_result = new JSONObject(EntityUtils.toString(entity));
-			}
+			return StorageUtil.requestGetResult(uri);
 
-			// EntityUtils.consume(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 
-		} finally {
-			httpclient.getConnectionManager().shutdown();
 		}
-		return json_result;
 
+		return null;
 	}
-	*/
-}
 
+}
