@@ -39,7 +39,19 @@
             android:name="com.deepin.traveltimes.TimesLine"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>        
+        </activity>       
+         
+        <activity
+            android:name="com.deepin.traveltimes.ImgAll"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>          
+            
+        <activity
+            android:name="com.deepin.traveltimes.KaTong"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>          
         
         <activity
             android:name="com.deepin.traveltimes.Plan"

@@ -5,25 +5,11 @@
     android:orientation="horizontal" >
 
     <LinearLayout
-        android:layout_width="80px"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="850px"
-            android:background="#90EE90"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#9400D3"
-            android:textSize="30px" />
-    </LinearLayout>
-
-    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="850px"
         android:background="#7AC5CD"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layout_margin="10px" >
 
         <ImageView
             android:id="@+id/img"
@@ -39,12 +25,5 @@
             android:textColor="#FFFFFFFF"
             android:textSize="13dp" />
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/img_katong"
-        android:layout_width="wrap_content"
-        android:layout_height="800px"
-        android:src="@drawable/katong"
-        android:scaleType="fitCenter" />
 
 </LinearLayout>
