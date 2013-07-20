@@ -1,7 +1,16 @@
 package com.deepin.traveltimes;
 
+import java.util.concurrent.TimeUnit;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.map.Geometry;
@@ -18,6 +27,13 @@ public class MapActivity extends Activity {
 	private MapView mMapView = null;
 	private MapController mMapController = null;
 
+	private GeoPoint currentPosition = null;
+	GeoPoint[] poliLinePoints = null;
+
+	private Handler mHandler = null;
+
+	private ImageView currentPositionMarker;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,25 +41,49 @@ public class MapActivity extends Activity {
 		mBMapMan.init("99D4F50C2453175CB601D6015F6FCEBFFA067C9F", null);
 		setContentView(R.layout.activity_map);
 
-		mMapView = (MapView) findViewById(R.id.bmapsView);
-		mMapView.setBuiltInZoomControls(true);
-		// 设置启用内置的缩放控件
-		mMapController = mMapView.getController();
-		// 得到mMapView的控制权,可以用它控制和驱动平移和缩放
-		GeoPoint point = new GeoPoint((int) (30.47657 * 1E6),
-				(int) (114.40931 * 1E6));
+		mHandler = new MotionHandler();
+		currentPositionMarker = new ImageView(this);
+		currentPositionMarker.setImageResource(R.drawable.marker3);
 
-		mMapController.setCenter(point);// 设置地图中心点
+		mMapView = (MapView) findViewById(R.id.bmapsView);
+		mMapController = mMapView.getController();
+
+		setupPoliLinePoints();
+		drawPoliLines(poliLinePoints);
+
+		mMapController.setCenter(poliLinePoints[0]);// 设置地图中心点
 		mMapController.setZoom(15);// 设置地图zoom级别
 
-		GeoPoint[] poliLinePoints = new GeoPoint[5];
+		MapView.LayoutParams params = new MapView.LayoutParams(100, 100,
+				poliLinePoints[0], MapView.LayoutParams.BOTTOM_CENTER);
+		mMapView.addView(currentPositionMarker, params);
+
+		new MotionThread(mHandler).start();
+	}
+
+	private void setupPoliLinePoints() {
+		poliLinePoints = new GeoPoint[5];
 		poliLinePoints[0] = MapUtils.toGeoPoint(30.4445, 114.4258);
 		poliLinePoints[1] = MapUtils.toGeoPoint(30.44015, 114.42149);
 		poliLinePoints[2] = MapUtils.toGeoPoint(30.44915, 114.42095);
 		poliLinePoints[3] = MapUtils.toGeoPoint(30.4651, 114.4203);
 		poliLinePoints[4] = MapUtils.toGeoPoint(30.48540, 114.41042);
+	}
 
-		drawPoliLines(poliLinePoints);
+	private void P2P(GeoPoint start, GeoPoint end) {
+		Point startPoint = mMapView.getProjection().toPixels(start, null);
+		Point endPoint = mMapView.getProjection().toPixels(end, null);
+
+		TranslateAnimation ta = new TranslateAnimation(0, endPoint.x
+				- startPoint.x, 0, endPoint.y - startPoint.y);
+
+		ta.setAnimationListener(new MotionAnimationListener(this, mMapView,
+				end, this.currentPositionMarker));
+		ta.setFillBefore(true);
+		ta.setFillEnabled(true);
+		ta.setDuration(2000);
+		ta.setInterpolator(new LinearInterpolator());
+		currentPositionMarker.startAnimation(ta);
 	}
 
 	protected void drawPoliLines(GeoPoint[] points) {
@@ -118,5 +158,46 @@ public class MapActivity extends Activity {
 			mBMapMan.start();
 		}
 		super.onResume();
+	}
+
+	@SuppressLint("HandlerLeak")
+	class MotionThread extends Thread {
+		private Handler handler = null;
+
+		public MotionThread(Handler mHandler) {
+			this.handler = mHandler;
+		}
+
+		@Override
+		public void run() {
+			for (int i = 0; i < poliLinePoints.length - 1; i++) {
+				try {
+					TimeUnit.MILLISECONDS.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				handler.sendEmptyMessage(i);
+
+				synchronized (MapActivity.this) {
+					try {
+						MapActivity.this.wait();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+			}
+		}
+	}
+
+	class MotionHandler extends Handler {
+		@SuppressLint("HandlerLeak")
+		@Override
+		public void handleMessage(Message msg) {
+			P2P(poliLinePoints[msg.what], poliLinePoints[msg.what + 1]);
+		}
 	}
 }
