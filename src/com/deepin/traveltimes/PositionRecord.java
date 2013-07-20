@@ -4,13 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.deepin.traveltimes.storage.LBSCloudStorage;
 
 public class PositionRecord extends Activity implements OnClickListener{
    
@@ -22,23 +19,12 @@ public class PositionRecord extends Activity implements OnClickListener{
 	private Button unbindServiceButton;
 	private Context mContext;
 	
-	
+	public static String TAG = "PositionRecord";
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.service_control);
-        setupViews();
-        
-        /*LBSCloudStorage s = new LBSCloudStorage ();
-  	 
-  	  	for (int i=0 ; i < 3; i++) {
-  	  		try {
-  	  			Log.e("storage", "id" + LBSCloudStorage.createDatabox("dejk" + i));
-  	  		} catch (Exception e) {
-  	  			// TODO Auto-generated catch block
-  	  			e.printStackTrace();
-  	  		}
-  	  	}*/
+        setupViews();        
     }
     
     public void setupViews(){
@@ -58,7 +44,6 @@ public class PositionRecord extends Activity implements OnClickListener{
     }
     
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		if(v == startServiceButton){
 			Intent i  = new Intent();
 			i.setClass(PositionRecord.this, PositionService.class);

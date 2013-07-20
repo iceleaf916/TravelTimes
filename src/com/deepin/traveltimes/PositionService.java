@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -32,8 +33,30 @@ public class PositionService extends Service{
 	  public BDLocationListener myListener = new MyLocationListener();
 	  public LocationClientOption option = new LocationClientOption();
 
+	  public boolean checkExternalStorage(){
+		  boolean mExternalStorageAvailable = false;
+		  boolean mExternalStorageWriteable = false;
+		  String state = Environment.getExternalStorageState();
+
+		  if (Environment.MEDIA_MOUNTED.equals(state)) {
+		      // We can read and write the media
+		      mExternalStorageAvailable = mExternalStorageWriteable = true;
+		  } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+		      // We can only read the media
+		      mExternalStorageAvailable = true;
+		      mExternalStorageWriteable = false;
+		  } else {
+		      // Something else is wrong. It may be one of many other states, but all we need
+		      //  to know is we can neither read nor write
+		      mExternalStorageAvailable = mExternalStorageWriteable = false;
+		  }
+		  return mExternalStorageAvailable && mExternalStorageWriteable;
+	  }
+	  
 	  public class MyLocationListener implements BDLocationListener {
 		  	
+		   public 
+		  
 			@Override
 			public void onReceiveLocation(BDLocation location) {
 				if (location == null)
@@ -52,8 +75,6 @@ public class PositionService extends Service{
 				if (location.getLocType() == BDLocation.TypeGpsLocation){
 					Log.e(TAG, "Get GPS location results");
 				} else if (location.getLocType() == BDLocation.TypeNetWorkLocation){
-					/*sb.append("\naddr : ");
-					sb.append(location.getAddrStr());*/
 					Log.e(TAG, "Get network location results");
 				} else if (location.getLocType() == BDLocation.TypeOffLineLocation){
 					Log.e(TAG, "Get offline location results");				
