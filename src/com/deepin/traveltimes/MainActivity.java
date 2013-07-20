@@ -1,5 +1,6 @@
 package com.deepin.traveltimes;
 
+import com.deepin.traveltimes.storage.LBSCloudStorage;
 import com.deepin.traveltimes.util.SystemUiHider;
 
 import android.annotation.TargetApi;
@@ -7,6 +8,7 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -125,6 +127,21 @@ public class MainActivity extends Activity {
 		// while interacting with the UI.
 		findViewById(R.id.dummy_button).setOnTouchListener(
 				mDelayHideTouchListener);
+		
+		
+		LBSCloudStorage s = new LBSCloudStorage ();
+		
+
+		for (int i=0 ; i < 3; i++) {
+			try {
+				Log.e("storage", "id" + LBSCloudStorage.createDatabox("dejk" + i));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		}
+
+		
 	}
 
 	@Override

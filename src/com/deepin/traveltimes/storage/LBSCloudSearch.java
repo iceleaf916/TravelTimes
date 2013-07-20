@@ -1,20 +1,9 @@
 package com.deepin.traveltimes.storage;
 
-import java.net.URI;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-
 public class LBSCloudSearch {
 
 	private static final String ak = "9d0caaa9caf79a3eab0db881339bf04c";
-
+/*
 	public static JSONObject searchRegion(String filter, String databox_id,
 			String location, String scope) throws Exception {
 		JSONObject json_result = null;
@@ -140,4 +129,6 @@ public class LBSCloudSearch {
 		return json_result;
 
 	}
+	*/
 }
+

@@ -65,17 +65,18 @@
             android:name="com.deepin.traveltimes.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.deepin.traveltimes.MapActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_map"
             android:screenOrientation="sensor" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
     </application>
 
