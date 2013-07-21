@@ -42,7 +42,6 @@ public class MapActivity extends Activity {
 	private ImageView currentPositionMarker;
 	private TranslateAnimation ta;
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -93,6 +92,9 @@ public class MapActivity extends Activity {
 	}
 
 	private void P2P(GeoPoint start, GeoPoint end) {
+		System.out.println("==============================" + mMapView + ", "
+				+ start);
+
 		Point startPoint = mMapView.getProjection().toPixels(start, null);
 		Point endPoint = mMapView.getProjection().toPixels(end, null);
 

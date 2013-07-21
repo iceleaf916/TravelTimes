@@ -1,5 +1,6 @@
 <resources>
 
     <color name="black_overlay">#66000000</color>
+    <color name="title_bar">#65768f</color>
 
 </resources>
