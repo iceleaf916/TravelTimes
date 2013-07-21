@@ -8,8 +8,11 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.baidu.mapapi.BMapManager;
@@ -27,12 +30,12 @@ public class MapActivity extends Activity {
 	private MapView mMapView = null;
 	private MapController mMapController = null;
 
-	private GeoPoint currentPosition = null;
 	GeoPoint[] poliLinePoints = null;
 
 	private Handler mHandler = null;
 
 	private ImageView currentPositionMarker;
+	private TranslateAnimation ta;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,9 +77,8 @@ public class MapActivity extends Activity {
 		Point startPoint = mMapView.getProjection().toPixels(start, null);
 		Point endPoint = mMapView.getProjection().toPixels(end, null);
 
-		TranslateAnimation ta = new TranslateAnimation(0, endPoint.x
-				- startPoint.x, 0, endPoint.y - startPoint.y);
-
+		ta = new TranslateAnimation(0, endPoint.x - startPoint.x, 0, endPoint.y
+				- startPoint.y);
 		ta.setAnimationListener(new MotionAnimationListener(this, mMapView,
 				end, this.currentPositionMarker));
 		ta.setFillBefore(true);
