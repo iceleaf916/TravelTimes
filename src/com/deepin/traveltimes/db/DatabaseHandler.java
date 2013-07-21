@@ -26,6 +26,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_DATE_TIME = "datetime";
     private static final String KEY_LATITUDE = "latitude";
     private static final String KEY_LONTITUDE = "lontitude";
+    private static final String KEY_DISTRICT = "lontitude";
+    private static final String KEY_CITY = "lontitude";
  
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -38,7 +40,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY," 
         		+ KEY_DATE_TIME + " TEXT,"
         		+ KEY_LATITUDE + " TEXT,"
-                + KEY_LONTITUDE + " TEXT"
+                + KEY_LONTITUDE + " TEXT,"
+                + KEY_DISTRICT + " TEXT,"
+                + KEY_CITY + " TEXT"
         		+ ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
@@ -61,9 +65,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
  
         ContentValues values = new ContentValues();
-        values.put(KEY_DATE_TIME, position.getDatetime());
-        values.put(KEY_LATITUDE, position.getLatitude());
-        values.put(KEY_LONTITUDE, position.getLontitude());
+        values.put(KEY_DATE_TIME, position._datetime);
+        values.put(KEY_LATITUDE, position._latitude);
+        values.put(KEY_LONTITUDE, position._lontitude);
+        values.put(KEY_DISTRICT, position._district);
+        values.put(KEY_CITY, position._city);
  
         // Inserting Row
         db.insert(TABLE_POSITIONS, null, values);
@@ -75,20 +81,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
  
         Cursor cursor = db.query(TABLE_POSITIONS, new String[] { KEY_DATE_TIME,
-        		KEY_LATITUDE, KEY_LONTITUDE }, KEY_ID + "=?",
+        		KEY_LATITUDE, KEY_LONTITUDE, KEY_DISTRICT, KEY_CITY }, KEY_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
  
-        Position position = new Position(cursor.getString(1),
-                cursor.getString(2), cursor.getString(3));
+        Position position = new Position(Integer.parseInt(cursor.getString(0)), cursor.getString(1),
+                cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
         // return contact
         return position;
     }
      
     // Getting All Positions
     public List<Position> getAllPositions() {
-        List<Position> contactList = new ArrayList<Position>();
+        List<Position> positionList = new ArrayList<Position>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_POSITIONS;
  
@@ -99,41 +105,31 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Position position = new Position();
-                position.setDatetime(cursor.getString(1));
-                position.setLatitude(cursor.getString(2));
-                position.setLontitude(cursor.getString(3));
-                // Adding contact to list
-                contactList.add(position);
+                position._id = Integer.parseInt(cursor.getString(0));
+                position._datetime = cursor.getString(1);
+                position._latitude = cursor.getString(2);
+                position._lontitude = cursor.getString(3);
+                position._district = cursor.getString(4);
+                position._city = cursor.getString(5);
+                // Adding position to list
+                positionList.add(position);
             } while (cursor.moveToNext());
         }
  
         // return contact list
-        return contactList;
+        return positionList;
     }
  
-    // Updating single contact
-    /*public int updatePosition(Position contact) {
-        SQLiteDatabase db = this.getWritableDatabase();
- 
-        ContentValues values = new ContentValues();
-        values.put(KEY_NAME, contact.getName());
-        values.put(KEY_PH_NO, contact.getPhoneNumber());
- 
-        // updating row
-        return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",
-                new String[] { String.valueOf(contact.getID()) });
-    }*/
- 
     // Deleting single contact
-    public void deletePosition(Position contact) {
+    public void deletePosition(Position position) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_POSITIONS, KEY_ID + " = ?",
-                new String[] { String.valueOf(contact._id) });
+                new String[] { String.valueOf(position._id) });
         db.close();
     }
  
  
-    // Getting contacts Count
+    // Getting positions Count
     public int getPositionsCount() {
         String countQuery = "SELECT  * FROM " + TABLE_POSITIONS;
         SQLiteDatabase db = this.getReadableDatabase();

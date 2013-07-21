@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class PositionRecord extends Activity implements OnClickListener{
@@ -24,13 +25,13 @@ public class PositionRecord extends Activity implements OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.service_control);
-        setupViews();        
+        setupViews();
     }
     
     public void setupViews(){
     
     	mContext = PositionRecord.this;
-    	mTextView = (TextView)findViewById(R.id.text);    	
+    	mTextView = (EditText)findViewById(R.id.editText1);    	
     	
     	startServiceButton = (Button)findViewById(R.id.startservice);
     	stopServiceButton = (Button)findViewById(R.id.stopservice);

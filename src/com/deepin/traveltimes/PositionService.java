@@ -9,6 +9,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -36,16 +37,17 @@ public class PositionService extends Service{
 	  public class MyLocationListener implements BDLocationListener {
 		  	
 		  	public void updatePositionInfo(BDLocation location){
-		  		String datetime = location.getTime(); 
+		  		String datetime = Long.toString(System.currentTimeMillis()); 
 		  		String latitude = Double.toString(location.getLatitude());
 		  		String longtitude = Double.toString(location.getLongitude());
-		  		Position position = new Position(datetime, latitude, longtitude);
+		  		Position position = new Position(datetime, latitude, longtitude, location.getDistrict(), location.getCity());
 		  		db.addPosition(position);
 		  	}
 		  	
 		  	public void locationReceived(BDLocation location){
 		  		if (location == null)
 					return ;
+		  		Log.e(TAG, DateFormat.format("MM/dd/yy h:mmaa", System.currentTimeMillis()).toString());
 				if (location.getLocType() == BDLocation.TypeGpsLocation){
 					updatePositionInfo(location);
 					Log.e(TAG, "Get GPS location results");
@@ -58,7 +60,9 @@ public class PositionService extends Service{
 				}else{
 					int code = location.getLocType();
 					Log.e(TAG, "Get location failed! Code:" + Integer.toString(code));
+					updatePositionInfo(location);
 				}
+				Log.e(TAG, location.getDistrict()+","+location.getCity());
 				stopLocation();
 		  	}
 		  	
