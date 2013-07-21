@@ -5,28 +5,6 @@
     android:background="#FDF0DE"
     android:orientation="horizontal" >
 
-    <LinearLayout
-        android:layout_width="110px"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="850px"
-            android:layout_marginLeft="10px"
-            android:gravity="center_vertical|center_horizontal"
-            android:textColor="#90795A"
-            android:textSize="45px" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="846px"
-        android:layout_margin="10px"
-        android:background="#ffffff"
-        android:orientation="vertical" >
-
         <ImageView
             android:id="@+id/img"
             android:layout_width="fill_parent"
@@ -85,13 +63,7 @@
                 android:layout_marginRight="0px"
                 android:scaleType="fitCenter" />
         </LinearLayout>
-    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/img_katong"
-        android:layout_width="wrap_content"
-        android:layout_height="800px"
-        android:scaleType="fitCenter"
-        android:src="@drawable/katong" />
+
 
 </LinearLayout>
