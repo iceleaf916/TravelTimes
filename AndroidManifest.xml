@@ -102,14 +102,15 @@
         </activity>
         <activity
             android:name="com.deepin.traveltimes.MapActivity"
-            android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_map"
-            android:screenOrientation="sensor" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity
-            android:name="com.deepin.traveltimes.MapDetailActivity"
-            android:label="@string/title_activity_map_detail" >
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.deepin.traveltimes.TimesLine" >
         </activity>
     </application>
 
