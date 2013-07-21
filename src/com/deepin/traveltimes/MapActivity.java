@@ -24,12 +24,9 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.deepin.traveltimes.util.MapUtils;
 
 public class MapActivity extends Activity {
-<<<<<<< HEAD
-	BMapManager mBMapMan = null;
-	MapView mMapView = null;
-	
+
 	public LocationClient mLocationClient = null;
-=======
+
 	private BMapManager mBMapMan = null;
 	private MapView mMapView = null;
 	private MapController mMapController = null;
@@ -40,7 +37,7 @@ public class MapActivity extends Activity {
 	private Handler mHandler = null;
 
 	private ImageView currentPositionMarker;
->>>>>>> origin/develop
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

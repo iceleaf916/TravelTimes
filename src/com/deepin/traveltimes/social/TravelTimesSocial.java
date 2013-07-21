@@ -13,8 +13,6 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
 public class TravelTimesSocial {
 	private final static String appKey = "mt1PUrn51Zvj86n3ySgrvT0I";
 	private final static String AUTHORIZE_URL = "https://openapi.baidu.com/social/oauth/2.0/authorize";
