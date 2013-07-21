@@ -74,55 +74,50 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int img_time=0x7f020027;
         public static final int katong=0x7f020028;
         public static final int katong_roadlines=0x7f020029;
-        public static final int marker1=0x7f02002a;
-        public static final int marker2=0x7f02002b;
-        public static final int marker3=0x7f02002c;
-        public static final int pic=0x7f02002d;
-        public static final int pop=0x7f02002e;
-        public static final int qq=0x7f02002f;
-        public static final int start=0x7f020030;
-        public static final int weibo=0x7f020031;
-        public static final int weixin=0x7f020032;
+        public static final int marker3=0x7f02002a;
+        public static final int pic=0x7f02002b;
+        public static final int pop=0x7f02002c;
+        public static final int qq=0x7f02002d;
+        public static final int start=0x7f02002e;
+        public static final int weibo=0x7f02002f;
+        public static final int weixin=0x7f020030;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
-        public static final int bmapsView=0x7f090001;
+        public static final int action_settings=0x7f09000d;
+        public static final int bmapsView=0x7f090003;
         public static final int fullscreen_content=0x7f090000;
-        public static final int img=0x7f090005;
-        public static final int img_katong=0x7f09000d;
-        public static final int img_like=0x7f09000a;
-        public static final int img_share=0x7f09000b;
-        public static final int img_time=0x7f090007;
-        public static final int info=0x7f090006;
-        public static final int map_detail_avatar=0x7f090004;
-        public static final int map_detail_pic=0x7f090002;
-        public static final int map_detail_text=0x7f090003;
-        public static final int text_coordinates=0x7f090009;
-        public static final int text_time=0x7f090008;
-        public static final int title=0x7f09000c;
+        public static final int img=0x7f090004;
+        public static final int img_katong=0x7f09000c;
+        public static final int img_like=0x7f090009;
+        public static final int img_share=0x7f09000a;
+        public static final int img_time=0x7f090006;
+        public static final int info=0x7f090005;
+        public static final int map_title_back=0x7f090002;
+        public static final int map_title_bar=0x7f090001;
+        public static final int text_coordinates=0x7f090008;
+        public static final int text_time=0x7f090007;
+        public static final int title=0x7f09000b;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_map=0x7f030001;
-        public static final int activity_map_detail=0x7f030002;
-        public static final int imgall=0x7f030003;
-        public static final int katong=0x7f030004;
-        public static final int login=0x7f030005;
-        public static final int plan=0x7f030006;
-        public static final int timesline=0x7f030007;
+        public static final int imgall=0x7f030002;
+        public static final int katong=0x7f030003;
+        public static final int login=0x7f030004;
+        public static final int plan=0x7f030005;
+        public static final int timesline=0x7f030006;
     }
     public static final class menu {
         public static final int map=0x7f080000;
-        public static final int map_detail=0x7f080001;
     }
     public static final class string {
         public static final int action_settings=0x7f060004;
         public static final int app_name=0x7f060000;
+        public static final int back=0x7f060006;
         public static final int dummy_button=0x7f060001;
         public static final int dummy_content=0x7f060002;
         public static final int hello_world=0x7f060005;
         public static final int title_activity_map=0x7f060003;
-        public static final int title_activity_map_detail=0x7f060006;
     }
     public static final class style {
         /** 

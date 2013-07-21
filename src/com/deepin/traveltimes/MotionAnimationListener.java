@@ -58,7 +58,7 @@ public class MotionAnimationListener implements AnimationListener {
 			imageView.setLayoutParams(markerParams);
 
 			MapView.LayoutParams picParams = new MapView.LayoutParams(320, 240,
-					this.point, 0, -80, MapView.LayoutParams.BOTTOM_CENTER);
+					this.point, 0, -90, MapView.LayoutParams.BOTTOM_CENTER);
 			recordPic = new ImageView(this.activity);
 			recordPic.setOnClickListener(new OnClickListener() {
 
