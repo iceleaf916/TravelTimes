@@ -22,7 +22,8 @@ public class PositionRecord extends Activity implements OnClickListener{
 	
 	public static String TAG = "PositionRecord";
 	
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.service_control);
         setupViews();
@@ -44,6 +45,7 @@ public class PositionRecord extends Activity implements OnClickListener{
     	unbindServiceButton.setOnClickListener(this);
     }
     
+	@Override
 	public void onClick(View v) {
 		if(v == startServiceButton){
 			Intent i  = new Intent();

@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#FDF0DE"
     android:orientation="horizontal" >
 
     <LinearLayout
-        android:layout_width="80px"
+        android:layout_width="110px"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
@@ -13,31 +14,84 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="850px"
-            android:background="#FFB6C1"
+            android:layout_marginLeft="10px"
             android:gravity="center_vertical|center_horizontal"
-            android:textColor="#9400D3"
-            android:textSize="30px" />
+            android:textColor="#90795A"
+            android:textSize="45px" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="850px"
-        android:background="#7AC5CD"
+        android:layout_height="846px"
+        android:layout_margin="10px"
+        android:background="#ffffff"
         android:orientation="vertical" >
 
         <ImageView
             android:id="@+id/img"
-            android:layout_width="wrap_content"
-            android:layout_height="800px"
+            android:layout_width="fill_parent"
+            android:layout_height="610px"
             android:scaleType="fitCenter" />
 
         <TextView
             android:id="@+id/info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="148px"
+            android:layout_marginLeft="70px"
+            android:layout_marginRight="10px"
             android:gravity="center_vertical"
-            android:textColor="#FFFFFFFF"
-            android:textSize="13dp" />
+            android:textColor="#767676"
+            android:textSize="35px" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="66px"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/img_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/text_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="#857155"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/text_coordinates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:gravity="center_vertical"
+                android:textColor="#857155"
+                android:textSize="24px" />
+
+            <ImageView
+                android:id="@+id/img_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter" />
+
+            <ImageView
+                android:id="@+id/img_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="0px"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_katong"
+        android:layout_width="wrap_content"
+        android:layout_height="800px"
+        android:scaleType="fitCenter"
+        android:src="@drawable/katong" />
 
 </LinearLayout>

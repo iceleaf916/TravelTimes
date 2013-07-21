@@ -4,10 +4,24 @@
     android:layout_height="match_parent"
     tools:context=".MapActivity" >
 
+    <LinearLayout
+        android:id="@+id/map_title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_overlay" >
+
+        <Button
+            android:id="@+id/map_title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back" />
+    </LinearLayout>
+
     <com.baidu.mapapi.map.MapView
         android:id="@+id/bmapsView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_below="@+id/map_title_bar"
         android:clickable="true" />
 
 </RelativeLayout>

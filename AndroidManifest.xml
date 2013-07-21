@@ -81,17 +81,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
-            android:name="com.deepin.traveltimes.TimesLine"
+            android:name="com.deepin.traveltimes.Login"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        
         <activity
-            android:name="com.deepin.traveltimes.MapActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:label="@string/title_activity_map"
-            android:screenOrientation="sensor" >
+            android:name="com.deepin.traveltimes.TimesLine"
+            android:screenOrientation="portrait" >
         </activity>
+        
+        <activity
+            android:name="com.deepin.traveltimes.ImgAll"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        
         <activity
             android:name="com.deepin.traveltimes.Plan"
             android:screenOrientation="portrait"
@@ -118,6 +125,12 @@
 
                 <data android:scheme="tencent100380359" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.deepin.traveltimes.MapActivity"
+            android:label="@string/title_activity_map"
+            android:theme="@android:style/Theme.NoTitleBar" >
+
         </activity>
     </application>
 

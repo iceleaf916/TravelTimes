@@ -2,7 +2,6 @@ package com.deepin.traveltimes;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -71,6 +70,7 @@ public class PositionService extends Service{
 				locationReceived(location);	
 			}
 		
+			@Override
 			public void onReceivePoi(BDLocation poiLocation) {
 				locationReceived(poiLocation);
 			}
