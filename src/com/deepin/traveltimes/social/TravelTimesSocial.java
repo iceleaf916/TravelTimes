@@ -32,8 +32,7 @@ public class TravelTimesSocial {
 		} catch (JSONException e) {
 			e.printStackTrace();
 			access_token = "";
-		}
-		
+		}		
 	}
 
 	public String getAccessToken(String platform) throws JSONException {
@@ -42,7 +41,7 @@ public class TravelTimesSocial {
 		HttpClient client = new DefaultHttpClient(new BasicHttpParams()
 				.setParameter("client_id", appKey)
 				.setParameter("response_type", "token")
-				.setParameter("redirect_url", "oob")
+				.setParameter("redirect_uri", "oob")
 				.setParameter("state", "anticsrfstring")
 				.setParameter("display", "mobile")
 				.setParameter("client_type", "android")

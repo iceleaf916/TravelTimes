@@ -8,9 +8,9 @@ import android.util.Log;
 public class LBSCloudStorage {
 
 	// private static final String ak = "54b391822609195547115cf72df54479";
-	private static final String ak = "9d0caaa9caf79a3eab0db881339bf04c";
+	private static final String ak = "BAd72db01283a5265ef026103ed97648";
 
-	public int createDatabox(String name) throws Exception {
+	public String createDatabox(String name) throws Exception {
 		String path = "/geodata/databox";
 		HashMap<String, String> query = new HashMap<String, String>();
 		query.put("method", "create");
@@ -23,7 +23,7 @@ public class LBSCloudStorage {
 		JSONObject result = StorageUtil.requestPostResult(uri);
 		try {
 			if (result.getInt("status") == 0) {
-				return result.getInt("id");
+				return result.getString("id");
 			} else {
 				throw new Exception(
 						"create data box response status not equals zero");
@@ -33,7 +33,7 @@ public class LBSCloudStorage {
 			e.printStackTrace();
 		}
 
-		return 0;
+		return null;
 	}
 
 	public int updateDatabox(String id, String name) throws Exception {
@@ -117,17 +117,17 @@ public class LBSCloudStorage {
 		return null;
 	}
 
-	public JSONObject createDataboxMeta(String name, String key, String type,
-			String databox, String magic) throws Exception {
+	public JSONObject createDataboxMeta(String name, String key, int type,
+			String databox, boolean magic) throws Exception {
 
 		String path = "/geodata/databoxmeta";
 		HashMap<String, String> query = new HashMap<String, String>();
 		query.put("method", "create");
 		query.put("property_name", name);
 		query.put("property_key", key);
-		query.put("property_type", type);
+		query.put("property_type", String.valueOf(type));
 		query.put("databox_id", databox);
-		query.put("if_magic_field", magic);
+		query.put("if_magic_field", String.valueOf(magic));
 		query.put("ak", ak);
 		String uri = StorageUtil.buildUri(path, query);
 
@@ -229,14 +229,15 @@ public class LBSCloudStorage {
 	}
 
 	public int createPoi(String name, String orig_lat, String orig_lon,
-			String coord_type, String databox_id) throws Exception {
+			int coord_type, String databox_id) throws Exception {
 
 		String path = "/geodata/poi/" + databox_id;
 		HashMap<String, String> query = new HashMap<String, String>();
 		query.put("method", "create");
 		query.put("original_lat", orig_lat);
 		query.put("original_lon", orig_lon);
-		query.put("original_coord_type", coord_type);
+		query.put("original_coord_type", String.valueOf(coord_type));
+		query.put("databox_id", databox_id);
 		query.put("ak", ak);
 		String uri = StorageUtil.buildUri(path, query);
 
@@ -319,10 +320,10 @@ public class LBSCloudStorage {
 		return -1;
 	}
 
-	public JSONObject queryPoi(String poi_id, String scope) throws Exception {
+	public JSONObject queryPoi(String poi_id, int scope) throws Exception {
 		String path = "/geodata/poi/" + poi_id;
 		HashMap<String, String> query = new HashMap<String, String>();
-		query.put("scope", scope);
+		query.put("scope", String.valueOf(scope));
 		query.put("ak", ak);
 		String uri = StorageUtil.buildUri(path, query);
 
@@ -339,11 +340,12 @@ public class LBSCloudStorage {
 		return null;
 	}
 
-	public JSONObject conditionQueryPoi(String poi_id, String scope)
+	public JSONObject conditionQueryPoi(String databox_id)
 			throws Exception {
-		String path = "/geodata/poi/" + poi_id;
+		String path = "/geodata/poi";
 		HashMap<String, String> query = new HashMap<String, String>();
-		query.put("scope", scope);
+		query.put("method", "list");
+		query.put("databox_id", databox_id);
 		query.put("ak", ak);
 		String uri = StorageUtil.buildUri(path, query);
 
@@ -360,10 +362,10 @@ public class LBSCloudStorage {
 		return null;
 	}
 
-	public int createPoiExt(String name) throws Exception {
+	public int createPoiExt(String name, String value) throws Exception {
 		String path = "/geodata/poi/";
 		HashMap<String, String> query = new HashMap<String, String>();
-		query.put("name", name);
+		query.put(name, value);
 		query.put("ak", ak);
 		String uri = StorageUtil.buildUri(path, query);
 
