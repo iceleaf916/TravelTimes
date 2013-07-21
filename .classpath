@@ -6,6 +6,9 @@
 	<classpathentry kind="lib" path="libs/locSDK_3.3.jar"/>
 	<classpathentry kind="lib" path="libs/baidumapapi_v2_1_2.jar"/>
 	<classpathentry kind="lib" path="libs/baidu-android-openapi-sdk.jar"/>
+	<classpathentry kind="lib" path="libs/bcs-sdk-java_1.4.3.jar"/>
+	<classpathentry kind="lib" path="libs/libammsdk.jar"/>
+	<classpathentry kind="lib" path="libs/Baidu-SocialLogin-SDK-Android-L1-1.1.0.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>

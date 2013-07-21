@@ -7,7 +7,7 @@ public class Login extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.login);
+		//setContentView(R.layout.login);
 	}
 
 }

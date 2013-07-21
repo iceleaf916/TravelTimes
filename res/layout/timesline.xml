@@ -87,11 +87,4 @@
         </LinearLayout>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/img_katong"
-        android:layout_width="wrap_content"
-        android:layout_height="800px"
-        android:scaleType="fitCenter"
-        android:src="@drawable/katong" />
-
 </LinearLayout>
