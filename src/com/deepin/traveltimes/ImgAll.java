@@ -1,6 +1,5 @@
 package com.deepin.traveltimes;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,8 +7,9 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,39 +21,25 @@ import android.widget.SimpleAdapter;
  * @author ycl
  * 
  */
-public class TimesLine extends ListActivity {
+public class ImgAll extends ListActivity {
 	// private List<String> data = new ArrayList<String>();
 	private List<Map<String, Object>> mData;
-	private ImageView img_katong;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mData = getData();
 		SimpleAdapter adapter = new SimpleAdapter(this, getData(),
-				R.layout.timesline, new String[] { "title", "img", "info",
-						"img_time", "text_time", "text_coordinates",
-						"img_like", "img_share" }, new int[] { R.id.title,
-						R.id.img, R.id.info, R.id.img_time, R.id.text_time,
-						R.id.text_coordinates, R.id.img_like, R.id.img_share });
+				R.layout.timesline, new String[] { "img", "info", "img_time",
+						"text_time", "text_coordinates", "img_like",
+						"img_share" }, new int[] { R.id.img, R.id.info,
+						R.id.img_time, R.id.text_time, R.id.text_coordinates,
+						R.id.img_like, R.id.img_share });
 		setListAdapter(adapter);
 
 	}
-
 	private List<Map<String, Object>> getData() {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		String[] titles = {
-				"2013   年   07   月   20   日",
-				"2013   年   07   月   20   日",
-				"2013   年   07   月   21   日",
-				"2013   年   07   月   21   日",
-				"2013   年   07   月   22   日",
-				"2013   年   07   月   23   日",
-				"2013   年   08   月   24   日",
-				"2013   年   08   月   24   日",
-				"2013   年   08   月   25   日",
-				"2013   年   08   月   25   日",
-				};
 		String[] infos = {
 				"democoffee,百度云编程大赛，真的很精彩，加油哦~~",
 				"作为一个人，如果你生活的地方发生战争，那么你很不幸。作为一名记者，如果你在职业生涯中遭遇过一场战争，并且身处其中，那是你的幸运。",
@@ -67,15 +53,15 @@ public class TimesLine extends ListActivity {
 				"于是沉醉，于是刻骨。我不知道是否真的有天堂，但如果有，想来也一定比不上这里吧？",
 				};
 		int[] imgs = {
-				R.drawable.img1,
-				R.drawable.img2,
-				R.drawable.img3,
-				R.drawable.img4,
-				R.drawable.img5,
 				R.drawable.img6,
-				R.drawable.img7,
-				R.drawable.img8,
+				R.drawable.img4,
 				R.drawable.img9,
+				R.drawable.img5,
+				R.drawable.img2,
+				R.drawable.img7,
+				R.drawable.img1,
+				R.drawable.img8,
+				R.drawable.img3,
 				R.drawable.img10,
 				};
 		int img_times =R.drawable.img_time;
@@ -133,7 +119,6 @@ public class TimesLine extends ListActivity {
 		for (int i = 0; i < num; i++) {
 			Map<String, Object> map;
 			map = new HashMap<String, Object>();
-			map.put("title", titles[i]);
 			map.put("info", infos[i]);
 			map.put("img", imgs[i]);
 			map.put("img_time", img_times);
@@ -150,8 +135,6 @@ public class TimesLine extends ListActivity {
 	// ListView 中某项被选中后的逻辑
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-
-		Log.v("MyListView-click", (String) mData.get(position).get("title"));
 		showInfo();
 	}
 
@@ -159,8 +142,14 @@ public class TimesLine extends ListActivity {
 	 * listview中点击按键弹出对话框
 	 */
 	public void showInfo() {
-		Intent intent = new Intent(TimesLine.this, ImgAll.class);
-		startActivity(intent);
+		new AlertDialog.Builder(this).setTitle("时光文字")
+				.setMessage("完美时光的文字，让回忆更清澈......")
+				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				}).show();
+
 	}
 
 }
