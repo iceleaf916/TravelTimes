@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SupportPlatforms>
+	<platform id="1">baidu</platform>
+	<platform id="2">qqdenglu</platform>
+	<platform id="3">weixin</platform>
+    <platform id="4">sinaweibo</platform>
+</SupportPlatforms>
