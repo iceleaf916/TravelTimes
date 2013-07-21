@@ -3,7 +3,6 @@ package com.deepin.traveltimes;
 import java.util.Random;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.View;
@@ -52,7 +51,7 @@ public class MotionAnimationListener implements AnimationListener {
 	@Override
 	public void onAnimationEnd(Animation animation) {
 		synchronized (this.activity) {
-			mapView.getController().setCenter(this.point);
+			mapView.getController().animateTo(this.point);
 
 			MapView.LayoutParams markerParams = new MapView.LayoutParams(100,
 					100, this.point, MapView.LayoutParams.BOTTOM_CENTER);

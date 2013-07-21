@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.baidu.mapapi.BMapManager;
@@ -31,6 +31,7 @@ public class MapActivity extends Activity {
 	private MapController mMapController = null;
 
 	GeoPoint[] poliLinePoints = null;
+	private Button backBtn = null;
 
 	private Handler mHandler = null;
 
@@ -55,22 +56,35 @@ public class MapActivity extends Activity {
 		drawPoliLines(poliLinePoints);
 
 		mMapController.setCenter(poliLinePoints[0]);// 设置地图中心点
-		mMapController.setZoom(15);// 设置地图zoom级别
+		mMapController.setZoom(12);// 设置地图zoom级别
 
 		MapView.LayoutParams params = new MapView.LayoutParams(100, 100,
 				poliLinePoints[0], MapView.LayoutParams.BOTTOM_CENTER);
 		mMapView.addView(currentPositionMarker, params);
 
+		backBtn = (Button) findViewById(R.id.map_title_back);
+		backBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				MapActivity.this.finish();
+			}
+		});
 		new MotionThread(mHandler).start();
 	}
 
 	private void setupPoliLinePoints() {
-		poliLinePoints = new GeoPoint[5];
-		poliLinePoints[0] = MapUtils.toGeoPoint(30.4445, 114.4258);
-		poliLinePoints[1] = MapUtils.toGeoPoint(30.44015, 114.42149);
-		poliLinePoints[2] = MapUtils.toGeoPoint(30.44915, 114.42095);
-		poliLinePoints[3] = MapUtils.toGeoPoint(30.4651, 114.4203);
-		poliLinePoints[4] = MapUtils.toGeoPoint(30.48540, 114.41042);
+		poliLinePoints = new GeoPoint[10];
+		poliLinePoints[0] = MapUtils.toGeoPoint(114.29027, 30.611909);
+		poliLinePoints[1] = MapUtils.toGeoPoint(114.213231, 30.624838);
+		poliLinePoints[2] = MapUtils.toGeoPoint(114.174137, 30.606936);
+		poliLinePoints[3] = MapUtils.toGeoPoint(114.182186, 30.539277);
+		poliLinePoints[4] = MapUtils.toGeoPoint(114.312117, 30.460614);
+		poliLinePoints[5] = MapUtils.toGeoPoint(114.460445, 30.475555);
+		poliLinePoints[6] = MapUtils.toGeoPoint(114.456995, 30.583062);
+		poliLinePoints[7] = MapUtils.toGeoPoint(114.415601, 30.663613);
+		poliLinePoints[8] = MapUtils.toGeoPoint(114.314416, 30.678523);
+		poliLinePoints[9] = MapUtils.toGeoPoint(114.29027, 30.611909);
 	}
 
 	private void P2P(GeoPoint start, GeoPoint end) {

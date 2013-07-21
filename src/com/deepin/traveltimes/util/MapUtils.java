@@ -13,7 +13,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.Projection;
 
 public class MapUtils {
-	public static GeoPoint toGeoPoint(double latitude, double longitude) {
+	public static GeoPoint toGeoPoint(double longitude, double latitude) {
 		return new GeoPoint((int) (latitude * 1E6), (int) (longitude * 1E6));
 	}
 
