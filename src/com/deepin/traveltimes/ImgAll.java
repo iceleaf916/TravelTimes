@@ -53,16 +53,16 @@ public class ImgAll extends ListActivity {
 				"于是沉醉，于是刻骨。我不知道是否真的有天堂，但如果有，想来也一定比不上这里吧？",
 				};
 		int[] imgs = {
-				R.drawable.img6,
-				R.drawable.img4,
-				R.drawable.img9,
-				R.drawable.img5,
-				R.drawable.img2,
-				R.drawable.img7,
-				R.drawable.img1,
-				R.drawable.img8,
-				R.drawable.img3,
-				R.drawable.img10,
+				R.drawable.img17,
+				R.drawable.img18,
+				R.drawable.img19,
+				R.drawable.img20,
+				R.drawable.img21,
+				R.drawable.img22,
+				R.drawable.img23,
+				R.drawable.img24,
+				R.drawable.img25,
+				R.drawable.img26,
 				};
 		int img_times =R.drawable.img_time;
 		int[] img_likes = {
@@ -132,24 +132,24 @@ public class ImgAll extends ListActivity {
 		return list;
 	}
 
-	// ListView 中某项被选中后的逻辑
-	@Override
-	protected void onListItemClick(ListView l, View v, int position, long id) {
-		showInfo();
-	}
-
-	/**
-	 * listview中点击按键弹出对话框
-	 */
-	public void showInfo() {
-		new AlertDialog.Builder(this).setTitle("时光文字")
-				.setMessage("完美时光的文字，让回忆更清澈......")
-				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-					}
-				}).show();
-
-	}
+//	// ListView 中某项被选中后的逻辑
+//	@Override
+//	protected void onListItemClick(ListView l, View v, int position, long id) {
+//		showInfo();
+//	}
+//
+//	/**
+//	 * listview中点击按键弹出对话框
+//	 */
+//	public void showInfo() {
+//		new AlertDialog.Builder(this).setTitle("时光文字")
+//				.setMessage("完美时光的文字，让回忆更清澈......")
+//				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//					@Override
+//					public void onClick(DialogInterface dialog, int which) {
+//					}
+//				}).show();
+//
+//	}
 
 }

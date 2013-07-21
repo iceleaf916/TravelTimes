@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="100dp"
             android:gravity="center" >
 
             <ImageButton
@@ -41,7 +41,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center" >
+            android:gravity="center" 
+            >
 
             <ImageButton
                 android:id="@+id/imageButtonWeixin"
@@ -69,7 +70,7 @@
         android:layout_below="@+id/linearLayout1"
         android:layout_marginTop="40dp"
         android:gravity="center"
-        android:text="触按图标登录"
+        android:text="触摸图标登录"
         android:textSize="30sp" />
 
 </RelativeLayout>
