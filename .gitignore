@@ -1,0 +1,8 @@
+*.class
+*.swp
+*.log
+.classpath
+.settings/
+bin/
+gen/
+.settings

@@ -21,21 +21,114 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class color {
         public static final int black_overlay=0x7f040000;
     }
+    public static final class dimen {
+        /**  Default screen margins, per the Android Design guidelines. 
+
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+    
+         */
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
+    }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int baidu=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int img1=0x7f020002;
+        public static final int img10=0x7f020003;
+        public static final int img11=0x7f020004;
+        public static final int img11jpg=0x7f020005;
+        public static final int img12=0x7f020006;
+        public static final int img13=0x7f020007;
+        public static final int img14=0x7f020008;
+        public static final int img15=0x7f020009;
+        public static final int img16=0x7f02000a;
+        public static final int img2=0x7f02000b;
+        public static final int img3=0x7f02000c;
+        public static final int img4=0x7f02000d;
+        public static final int img5=0x7f02000e;
+        public static final int img6=0x7f02000f;
+        public static final int img7=0x7f020010;
+        public static final int img8=0x7f020011;
+        public static final int img9=0x7f020012;
+        public static final int img_like1=0x7f020013;
+        public static final int img_like10=0x7f020014;
+        public static final int img_like2=0x7f020015;
+        public static final int img_like3=0x7f020016;
+        public static final int img_like4=0x7f020017;
+        public static final int img_like5=0x7f020018;
+        public static final int img_like6=0x7f020019;
+        public static final int img_like7=0x7f02001a;
+        public static final int img_like8=0x7f02001b;
+        public static final int img_like9=0x7f02001c;
+        public static final int img_share1=0x7f02001d;
+        public static final int img_share10=0x7f02001e;
+        public static final int img_share2=0x7f02001f;
+        public static final int img_share3=0x7f020020;
+        public static final int img_share4=0x7f020021;
+        public static final int img_share5=0x7f020022;
+        public static final int img_share6=0x7f020023;
+        public static final int img_share7=0x7f020024;
+        public static final int img_share8=0x7f020025;
+        public static final int img_share9=0x7f020026;
+        public static final int img_time=0x7f020027;
+        public static final int katong=0x7f020028;
+        public static final int katong_roadlines=0x7f020029;
+        public static final int marker1=0x7f02002a;
+        public static final int marker2=0x7f02002b;
+        public static final int marker3=0x7f02002c;
+        public static final int pic=0x7f02002d;
+        public static final int pop=0x7f02002e;
+        public static final int qq=0x7f02002f;
+        public static final int start=0x7f020030;
+        public static final int weibo=0x7f020031;
+        public static final int weixin=0x7f020032;
     }
     public static final class id {
-        public static final int dummy_button=0x7f070002;
-        public static final int fullscreen_content=0x7f070000;
-        public static final int fullscreen_content_controls=0x7f070001;
+        public static final int action_settings=0x7f090013;
+        public static final int bindservice=0x7f09000e;
+        public static final int bmapsView=0x7f090001;
+        public static final int editText1=0x7f090010;
+        public static final int fullscreen_content=0x7f090000;
+        public static final int img=0x7f090005;
+        public static final int img_katong=0x7f090012;
+        public static final int img_like=0x7f09000a;
+        public static final int img_share=0x7f09000b;
+        public static final int img_time=0x7f090007;
+        public static final int info=0x7f090006;
+        public static final int map_detail_avatar=0x7f090004;
+        public static final int map_detail_pic=0x7f090002;
+        public static final int map_detail_text=0x7f090003;
+        public static final int startservice=0x7f09000c;
+        public static final int stopservice=0x7f09000d;
+        public static final int text_coordinates=0x7f090009;
+        public static final int text_time=0x7f090008;
+        public static final int title=0x7f090011;
+        public static final int unbindservice=0x7f09000f;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int activity_map=0x7f030001;
+        public static final int activity_map_detail=0x7f030002;
+        public static final int imgall=0x7f030003;
+        public static final int katong=0x7f030004;
+        public static final int login=0x7f030005;
+        public static final int plan=0x7f030006;
+        public static final int service_control=0x7f030007;
+        public static final int timesline=0x7f030008;
+    }
+    public static final class menu {
+        public static final int map=0x7f080000;
+        public static final int map_detail=0x7f080001;
     }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int dummy_button=0x7f050001;
-        public static final int dummy_content=0x7f050002;
+        public static final int action_settings=0x7f060004;
+        public static final int app_name=0x7f060000;
+        public static final int dummy_button=0x7f060001;
+        public static final int dummy_content=0x7f060002;
+        public static final int hello_world=0x7f060005;
+        public static final int title_activity_map=0x7f060003;
+        public static final int title_activity_map_detail=0x7f060006;
     }
     public static final class style {
         /** 
@@ -59,15 +152,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
-        public static final int ButtonBar=0x7f060003;
-        public static final int ButtonBarButton=0x7f060004;
-        public static final int FullscreenActionBarStyle=0x7f060005;
-        public static final int FullscreenTheme=0x7f060002;
+        public static final int AppTheme=0x7f070001;
+        public static final int ButtonBar=0x7f070003;
+        public static final int ButtonBarButton=0x7f070004;
+        public static final int FullscreenActionBarStyle=0x7f070005;
+        public static final int FullscreenTheme=0x7f070002;
     }
     public static final class styleable {
         /** 
