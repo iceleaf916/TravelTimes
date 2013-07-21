@@ -8,21 +8,18 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
-
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true" />
-    
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
-               
         <activity
             android:name="com.deepin.traveltimes.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -34,31 +31,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+        <activity
+            android:name="com.deepin.traveltimes.Login"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
         <activity
             android:name="com.deepin.traveltimes.TimesLine"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>       
-         
+        </activity>
         <activity
             android:name="com.deepin.traveltimes.ImgAll"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>          
-            
+        </activity>
         <activity
             android:name="com.deepin.traveltimes.KaTong"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>          
-        
+        </activity>
         <activity
             android:name="com.deepin.traveltimes.Plan"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>        
-        
+        </activity>
     </application>
 
 </manifest>
