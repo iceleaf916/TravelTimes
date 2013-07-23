@@ -90,7 +90,7 @@ public class MainActivity extends Activity implements OnGestureListener {
 				viewFlipper.setOutAnimation(lOutAnim); // 从右向左滑动（右进左出）
 				viewFlipper.showNext();
 			} else {
-				Intent i = new Intent(this, MapActivity.class);
+				Intent i = new Intent(this, LoginActivity.class);
 				startActivity(i);
 				this.finish();
 			}

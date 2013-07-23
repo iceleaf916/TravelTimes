@@ -1,12 +1,12 @@
 package com.deepin.traveltimes;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -108,6 +108,7 @@ public class LoginActivity extends Activity {
 		public void onAuthComplete(Bundle values) {
 			// TODO Auto-generated method stubis
 			Log.e(TAG, "onAuthComplete: " + values.toString());
+
 		}
 
 		@Override
@@ -121,9 +122,10 @@ public class LoginActivity extends Activity {
 				public void run() {
 					if (checkFlag()) {
 						Log.e(TAG, Utility.decodeUnicode(responseStr));
-						//转跳主界面
-					} else {
-						//转跳领票界面
+						Intent i = new Intent(LoginActivity.this,
+								TimesLine.class);
+						LoginActivity.this.startActivity(i);
+						LoginActivity.this.finish();
 					}
 				}
 			});

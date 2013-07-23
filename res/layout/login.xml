@@ -26,10 +26,6 @@
             android:gravity="center_vertical|center_horizontal"
             android:orientation="vertical" >
         </LinearLayout>
-        
-        
-        
-        
     </LinearLayout>
 
 </LinearLayout>

@@ -8,8 +8,6 @@
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:layout_centerVertical="true"
@@ -35,7 +33,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:src="@drawable/splash_icon_05" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -56,9 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:src="@drawable/splash_icon_11" />
-
         </LinearLayout>
-
     </LinearLayout>
 
     <TextView

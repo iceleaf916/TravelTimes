@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -23,7 +22,6 @@ import android.widget.SimpleAdapter;
 public class TimesLine extends ListActivity {
 	// private List<String> data = new ArrayList<String>();
 	private List<Map<String, Object>> mData;
-	private ImageView img_katong;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -115,10 +113,12 @@ public class TimesLine extends ListActivity {
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
-		menu.add(0, 2, 2, "开始旅行");
+		menu.add(0, 1, 1, "开始旅行");
 		menu.add(0, 2, 2, "暂停旅行");
-		menu.add(0, 2, 2, "继续旅行");
-		menu.add(0, 2, 2, "结束旅行");
+		menu.add(0, 3, 3, "继续旅行");
+		menu.add(0, 4, 4, "结束旅行");
+		menu.add(0, 5, 5, "时光旅行");
+
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -139,6 +139,9 @@ public class TimesLine extends ListActivity {
 
 		} else if (item.getItemId() == 4) {
 
+		} else if (item.getItemId() == 5) {
+			Intent i = new Intent(this, MapActivity.class);
+			startActivity(i);
 		}
 		return true;
 	}
